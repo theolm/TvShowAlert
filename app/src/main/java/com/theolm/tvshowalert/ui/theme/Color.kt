@@ -2,7 +2,10 @@ package com.theolm.tvshowalert.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple200 = Color(0xFFBB86FC)
-val Purple500 = Color(0xFF6200EE)
-val Purple700 = Color(0xFF3700B3)
-val Teal200 = Color(0xFF03DAC5)
+
+val yellow = Color(0xFFffb82f)
+val yellowDark = Color(0xFFc78800)
+val yellowLight = Color(0xFFffea64)
+val grey1 = Color(0xFFF7F7F7)
+val grey2 = Color(0xFFD9D9D9)
+val grey3 = Color(0xFFC2C2C2)
