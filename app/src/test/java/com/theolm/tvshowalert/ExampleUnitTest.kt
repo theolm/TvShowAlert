@@ -18,6 +18,7 @@ class ExampleUnitTest {
     @Test
     fun stupidFakeTest() {
         assertTrue(true)
+        //lol
     }
 
     @Test
