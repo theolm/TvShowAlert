@@ -5,11 +5,18 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  run_tests:
 
     runs-on: ubuntu-latest
 
     steps:
+    - uses: LouisBrunner/checks-action@v1.1.1
+      if: always()
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        name: Set initial check
+        conclusion: ${{ job.status }}
+        
     - uses: actions/checkout@v3
     
     - name: set up JDK 11
@@ -32,10 +39,17 @@ jobs:
     - name: run tests
       uses: reactivecircus/android-emulator-runner@v2
       with:
-        api-level: 26
+        api-level: 27
         profile: pixel_4a
         script: ./gradlew connectedCheck
         
     - name: Android Test Report Action
       uses: asadmansr/android-test-report-action@v1.2.0
       if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
+      
+    - uses: LouisBrunner/checks-action@v1.1.1
+      if: always()
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        name: Set checks
+        conclusion: ${{ job.status }}
