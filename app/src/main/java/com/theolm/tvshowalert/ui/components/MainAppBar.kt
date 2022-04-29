@@ -19,23 +19,25 @@ import com.theolm.tvshowalert.ui.theme.horizontalMainPadding
 @Preview
 @Composable
 private fun Preview() {
-    MainAppBar()
+    MainAppBar(title = "Tv Shows")
 }
 
 
 @Composable
-fun MainAppBar(modifier: Modifier = Modifier) {
+fun MainAppBar(modifier: Modifier = Modifier, title: String, background: Color = Color.Transparent) {
     TopAppBar(
         modifier = modifier.testTag(MainAppBar.TestTag),
         elevation = 0.dp,
-        backgroundColor = Color.Transparent
+        backgroundColor = background
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth().padding(horizontal = horizontalMainPadding),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = horizontalMainPadding),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "Tv Shows",
+                text = title,
                 fontSize = 28.sp,
                 fontWeight = FontWeight.Black,
                 color = Color.Black

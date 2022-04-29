@@ -42,7 +42,7 @@ private fun Screen() {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
-            MainAppBar(modifier = Modifier.fillMaxWidth())
+            MainAppBar(modifier = Modifier.fillMaxWidth(), title = "TV Shows")
         }
     ) {
         LazyColumn(
