@@ -73,7 +73,7 @@ private fun Bitmap.compare(other: Bitmap) {
         this.getRow(row1, column)
         other.getRow(row2, column)
         if (!row1.contentEquals(row2)) {
-            //Each errors increments the outliers counter
+            // Each errors increments the outliers counter
             outliers++
         }
     }
@@ -89,7 +89,7 @@ private fun getSnapTolerance(width: Int, height: Int): Int {
 
     // Tolerance of 0.05%
     val toleranceRatio = 0.0005
-    //Calculate the maximum amount of outliers pixels
+    // Calculate the maximum amount of outliers pixels
     val pixelTolerance = width * height * toleranceRatio
 
     return when {

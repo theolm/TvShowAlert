@@ -28,7 +28,6 @@ class MainAppBarKtTest {
         getComponent().onChild().assertTextEquals("Tv Shows")
     }
 
-
     @Test
     fun snapTest1() {
         setupContent()

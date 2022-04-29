@@ -22,7 +22,6 @@ private fun Preview() {
     MainAppBar(title = "Tv Shows")
 }
 
-
 @Composable
 fun MainAppBar(modifier: Modifier = Modifier, title: String, background: Color = Color.Transparent) {
     TopAppBar(
@@ -43,7 +42,6 @@ fun MainAppBar(modifier: Modifier = Modifier, title: String, background: Color =
                 color = Color.Black
             )
         }
-
     }
 }
 
