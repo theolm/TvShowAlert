@@ -25,14 +25,15 @@ jobs:
     #  run: ./gradlew build
     
     # Execute unit tests
-    - name: Unit Test
-      run: ./gradlew testDebugUnitTest
+    #- name: Unit Test
+    #  run: ./gradlew testDebugUnitTest
       
     # Execut Intrumented tests
     - name: run tests
       uses: reactivecircus/android-emulator-runner@v2
       with:
-        api-level: 29
+        api-level: 28
+        profile: pixel_4a
         script: ./gradlew connectedCheck
         
     - name: Android Test Report Action
