@@ -2,7 +2,6 @@ package com.theolm.tvshowalert.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-
 val yellow = Color(0xFFffb82f)
 val yellowDark = Color(0xFFc78800)
 val yellowLight = Color(0xFFffea64)

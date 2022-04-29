@@ -1,7 +1,11 @@
 package com.theolm.tvshowalert.ui.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Text
@@ -48,16 +52,17 @@ fun ShowCard(url: String) {
                 contentScale = ContentScale.Crop,
             )
 
-            Box(modifier = Modifier
-                .fillMaxSize()
-                .background(
-                    brush = Brush.verticalGradient(
-                        colors = listOf(
-                            Color.Black.copy(alpha = 0.4f),
-                            Color.Black.copy(alpha = 0.8f)
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(
+                        brush = Brush.verticalGradient(
+                            colors = listOf(
+                                Color.Black.copy(alpha = 0.4f),
+                                Color.Black.copy(alpha = 0.8f)
+                            )
                         )
                     )
-                )
             )
 
             Text(
@@ -70,9 +75,5 @@ fun ShowCard(url: String) {
                 fontWeight = FontWeight(800)
             )
         }
-
-
-
-
     }
 }
