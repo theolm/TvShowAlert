@@ -19,7 +19,7 @@ import org.junit.runner.RunWith
 class ExampleInstrumentedTest {
     @Test
     fun useAppContext() {
-        // Context of the app under test.
+        // Context of the app under test.lol
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.theolm.tvshowalert", appContext.packageName)
     }
