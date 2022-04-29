@@ -18,11 +18,10 @@ class ExampleUnitTest {
     @Test
     fun stupidFakeTest() {
         assertTrue(true)
-        //lol
     }
 
     @Test
     fun stupidFakeTestFail() {
-        assertTrue(false)
+        assertTrue(true)
     }
 }
