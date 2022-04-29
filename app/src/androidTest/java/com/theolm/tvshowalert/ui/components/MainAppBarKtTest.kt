@@ -28,7 +28,7 @@ class MainAppBarKtTest {
     @Test
     fun testText() {
         getComponent().onChild().assertTextEquals("Tv Shows")
-        //try again2
+        //try again
     }
 
     private fun getComponent() = composeRule.onNodeWithTag(MainAppBar.TestTag, useUnmergedTree = true)
