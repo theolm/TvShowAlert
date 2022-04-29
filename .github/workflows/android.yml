@@ -5,6 +5,17 @@ on:
     branches: [ main ]
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    - uses: actions/checkout@v3
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    # Execute ktlint
+    - name: Unit Test
+      run: ./gradlew lintKotlin
+
   unit_tests:
     runs-on: ubuntu-latest
     
