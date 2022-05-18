@@ -1,4 +1,4 @@
-name: Greetings
+name: Pr Size Label
 
 on:
   pull_request:
@@ -9,12 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     name: 'Label the PR'
     steps:
-      - name: Pull request size labelling
-        uses: alexromer0/pull-request-labeler@2.1.1
-        with:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          xs_limit: '50'
-          sm_limit: '100'
-          md_limit: '300'
-          lg_limit: '600'
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Fix script permissions
+        run: chmod +x ./scripts/label.sh
+
+      - name: Run Label script
+        run: ./scripts/label.sh
 
