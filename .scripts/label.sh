@@ -2,7 +2,7 @@
 set -e
 
 ## Constants
-GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+GITHUB_TOKEN="$1"
 XS_LIMIT="50"
 SM_LIMIT="100"
 MD_LIMIT="300"
