@@ -13,92 +13,91 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    # Execute ktlint
-    - name: Unit Test
+    - name: Execute ktlint
       run: ./gradlew lintKotlin
 
-  # unit_tests:
-  #   runs-on: ubuntu-latest
+  unit_tests:
+    runs-on: ubuntu-latest
     
-  #   steps:
-  #   - uses: actions/checkout@v3
+    steps:
+    - uses: actions/checkout@v3
     
-  #   - name: set up JDK 11
-  #     uses: actions/setup-java@v3
-  #     with:
-  #       java-version: '11'
-  #       distribution: 'temurin'
-  #       cache: gradle
+    - name: set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        cache: gradle
         
-  #   - name: Grant execute permission for gradlew
-  #     run: chmod +x gradlew
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
       
-  #   # Execute unit tests
-  #   - name: Unit Test
-  #     run: ./gradlew testDebugUnitTest
+    # Execute unit tests
+    - name: Unit Test
+      run: ./gradlew testDebugUnitTest
       
-  #   - name: Android Test Report Action
-  #     uses: asadmansr/android-test-report-action@v1.2.0
-  #     if: ${{ always() }}
+    - name: Android Test Report Action
+      uses: asadmansr/android-test-report-action@v1.2.0
+      if: ${{ always() }}
         
         
-  # instrumented_tests:
+  instrumented_tests:
 
-  #   runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #   - uses: actions/checkout@v3
+    steps:
+    - uses: actions/checkout@v3
 
-  #   - name: set up JDK 11
-  #     uses: actions/setup-java@v3
-  #     with:
-  #       java-version: '11'
-  #       distribution: 'temurin'
-  #       cache: gradle
+    - name: set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        cache: gradle
 
-  #   - name: Grant execute permission for gradlew
-  #     run: chmod +x gradlew
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
 
-  #   - name: Gradle cache
-  #     uses: gradle/gradle-build-action@v2
+    - name: Gradle cache
+      uses: gradle/gradle-build-action@v2
 
-  #   - name: AVD cache
-  #     uses: actions/cache@v3
-  #     id: avd-cache
-  #     with:
-  #       path: |
-  #         ~/.android/avd/*
-  #         ~/.android/adb*
-  #       key: avd-27
+    - name: AVD cache
+      uses: actions/cache@v3
+      id: avd-cache
+      with:
+        path: |
+          ~/.android/avd/*
+          ~/.android/adb*
+        key: avd-27
 
-  #   - name: create AVD and generate snapshot for caching
-  #     if: steps.avd-cache.outputs.cache-hit != 'true'
-  #     uses: reactivecircus/android-emulator-runner@v2
-  #     with:
-  #       api-level: 27
-  #       profile: pixel_4a
-  #       force-avd-creation: false
-  #       emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
-  #       disable-animations: false
-  #       script: echo "Generated AVD snapshot for caching."
-
-
-  #   # Execut Intrumented tests
-  #   - name: run tests
-  #     uses: reactivecircus/android-emulator-runner@v2
-  #     with:
-  #       api-level: 27
-  #       profile: pixel_4a
-  #       force-avd-creation: false
-  #       emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
-  #       disable-animations: false
-  #       script: ./gradlew connectedCheck
+    - name: create AVD and generate snapshot for caching
+      if: steps.avd-cache.outputs.cache-hit != 'true'
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: 27
+        profile: pixel_4a
+        force-avd-creation: false
+        emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+        disable-animations: false
+        script: echo "Generated AVD snapshot for caching."
 
 
-  #   - name: Android Test Report Action
-  #     uses: asadmansr/android-test-report-action@v1.2.0
-  #     if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
-  #     with:
-  #       name: reports
-  #       path: app/build/outputs/androidTest-results/connected
+    # Execut Intrumented tests
+    - name: run tests
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: 27
+        profile: pixel_4a
+        force-avd-creation: false
+        emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+        disable-animations: false
+        script: ./gradlew connectedCheck
+
+
+    - name: Android Test Report Action
+      uses: asadmansr/android-test-report-action@v1.2.0
+      if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
+      with:
+        name: reports
+        path: app/build/outputs/androidTest-results/connected
       

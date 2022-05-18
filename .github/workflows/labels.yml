@@ -16,5 +16,5 @@ jobs:
         run: chmod +x ./.scripts/label.sh
 
       - name: Run Label script
-        run: ./.scripts/label.sh '${{ secrets.GITHUB_TOKEN }}'
+        run: ./.scripts/label.sh '${{ secrets.GITHUB_TOKEN }}' '50' '100' '300' '600'
 

@@ -3,10 +3,10 @@ set -e
 
 ## Constants
 GITHUB_TOKEN="$1"
-XS_LIMIT="50"
-SM_LIMIT="100"
-MD_LIMIT="300"
-LG_LIMIT="600"
+XS_LIMIT="$2"
+SM_LIMIT="$3"
+MD_LIMIT="$4"
+LG_LIMIT="$5"
 URI="https://api.github.com"
 API_HEADER="Accept: application/vnd.github.v3.json"
 AUTH_HEADER="Authorization: token ${GITHUB_TOKEN}"
