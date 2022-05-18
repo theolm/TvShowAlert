@@ -2,13 +2,14 @@
 set -e
 
 ## Constants
+GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}"
 XS_LIMIT="50"
 SM_LIMIT="100"
 MD_LIMIT="300"
 LG_LIMIT="600"
 URI="https://api.github.com"
 API_HEADER="Accept: application/vnd.github.v3.json"
-AUTH_HEADER="Authorization: token ${{ secrets.GITHUB_TOKEN }}"
+AUTH_HEADER="Authorization: token ${GITHUB_TOKEN}"
 XS_COLOR="00FF3A"
 SM_COLOR="9CFF00"
 MD_COLOR="EFFF00"
